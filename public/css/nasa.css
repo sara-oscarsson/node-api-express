@@ -1,0 +1,21 @@
+#demo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+.imgWrapper {
+    width: 33%;
+    height: 200px;
+    margin: 10px;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: inherit;
+}
