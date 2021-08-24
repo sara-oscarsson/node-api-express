@@ -1,0 +1,14 @@
+
+
+GET http://localhost:3000/showPlanets
+
+###
+
+
+POST http://localhost:3000/savePlanets
+content-type: application/json
+
+{
+    "name": "testplanet",
+    "color": "test"
+}
