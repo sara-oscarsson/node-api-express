@@ -33,6 +33,9 @@ saturnBtn.addEventListener('click', ()=> {
 uranusBtn.addEventListener('click', ()=> {
     connectNasa('uranus')
 });
+neptuneBtn.addEventListener('click', ()=> {
+    connectNasa('neptune')
+});
 plutoBtn.addEventListener('click', ()=> {
     connectNasa('planet pluto')
 });
