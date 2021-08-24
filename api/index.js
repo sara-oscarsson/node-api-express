@@ -23,6 +23,16 @@ app.post('/savePlanets', (req, res)=> {
     res.json(planets);
 })
 
+app.delete('/planets/delete', (req, res)=> {
+    let raw = fs.readFileSync('planets.json');
+    let planets = JSON.parse(raw);
+    planets.splice(req.body.index, 1);
+    /* res.json(planets[req.body.index]); */
+    fs.writeFileSync('planets.json', JSON.stringify(planets));
+    res.json('deleted')
+    console.log('deleting')
+})
+
 
 app.listen(port, ()=> {
     console.log(`Listening on port ${port}`);
