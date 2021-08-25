@@ -13,10 +13,10 @@ sunBtn.addEventListener('click', ()=> {
     connectNasa('sun')
 });
 mercuryBtn.addEventListener('click', ()=> {
-    connectNasa('mercury')
+    connectNasa('planet mercury')
 });
 venusBtn.addEventListener('click', ()=> {
-    connectNasa('venus')
+    connectNasa('planet venus')
 });
 earthBtn.addEventListener('click', ()=> {
     connectNasa('earth')
