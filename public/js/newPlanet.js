@@ -47,6 +47,7 @@ async function showPlanetToUpdate(planet) {
             console.log(ogName);
             let response = await makeRequest(`http://localhost:3000/change/${ogName}`, 'PUT', { name: name.value, description: description.value });
             console.log(response)
+            updateWrapper.innerHTML = '';
         })
     
         updateWrapper.append(name, description, changeBtn);

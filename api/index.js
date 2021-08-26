@@ -65,10 +65,13 @@ app.put('/change/:name', (req, res)=> {
         let raw = fs.readFileSync('planets.json');
         let planets = JSON.parse(raw);
         planets.forEach( function (planet, i) {
-            console.log(`This planet is ${planet.name} and index is ${i}`);
+            /* console.log(`This planet is ${planet.name} and index is ${i}`); */
             if(planet.name === req.params.name){
-                res.json(planet);
-                return next();
+                planets.splice(i, 1);
+                planets.push(req.body)
+                fs.writeFileSync('planets.json', JSON.stringify(planets));
+                return res.json('Update success!');
+                
                 
     
             }
