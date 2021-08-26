@@ -4,13 +4,17 @@ GET http://localhost:3000/showPlanets
 
 ###
 
+GET http://localhost:3000/specific/Pluto
+
+###
+
 
 POST http://localhost:3000/savePlanets
 content-type: application/json
 
 {
-    "name": "Venus",
-    "description": "red"
+    "name": "Test1",
+    "description": "Testplanet"
 }
 
 ###
@@ -24,4 +28,10 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/specific/Pluto
+PUT http://localhost:3000/change/Test1
+content-type: application/json
+
+{
+    "name": "Test1",
+    "Description": "Changed text"
+}

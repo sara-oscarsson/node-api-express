@@ -1,7 +1,7 @@
 import makeRequest from './logic.js';
 
 
-
+/* Sparar en planet */
 let saveBtn = document.getElementById('saveBtn');
 saveBtn.addEventListener('click', async ()=> {
     let nameInput = document.getElementById('nameInput').value;
@@ -13,6 +13,7 @@ saveBtn.addEventListener('click', async ()=> {
     document.getElementById('colorInput').value = '';
 })
 
+/* Söker efter en planet mha namn */
 let searchBtn = document.getElementById('searchBtn');
 searchBtn.addEventListener('click', async ()=> {
     let searchName = document.getElementById('searchName').value;
@@ -22,12 +23,12 @@ searchBtn.addEventListener('click', async ()=> {
     let response = await makeRequest(`http://localhost:3000/specific/${searchName}`, 'GET');
     console.log(response)
     document.getElementById('searchName').value = '';
-
-    
     showPlanetToUpdate(response);
 
 })
 
+
+/* Uppdaterar en planet */
 async function showPlanetToUpdate(planet) {
     let updateWrapper = document.getElementById('updateWrapper');
     updateWrapper.innerHTML = '';
