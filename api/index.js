@@ -65,8 +65,9 @@ app.put('/change/:name', (req, res)=> {
 
             /* Hämtar ut planeten och dess index mha namnet och en forEach */
             if(planet.name === req.params.name){
-                planets.splice(i, 1);
-                planets.push(req.body)
+                
+                planet.name = req.body.name;
+                planet.description = req.body.description;
                 fs.writeFileSync('planets.json', JSON.stringify(planets));
                 return res.json('Update success!');
             }

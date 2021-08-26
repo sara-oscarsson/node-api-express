@@ -6,6 +6,44 @@ body {
     color: white;
 }
 
+header {
+    background-image: url(https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/starfield-banner.jpg);
+    width: 100%;
+    top: 0;
+    height: 150px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+header ul li{
+    padding: 0;
+    list-style-type: none;
+    margin: 20px;
+}
+
+header ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
 button {
     border: none;
     padding: 10px;
