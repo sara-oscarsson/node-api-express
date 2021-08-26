@@ -10,7 +10,6 @@ app.use(express.static('../public'));
 
 /* Hämtar alla planeter från planets.json */
 app.get('/showPlanets', (req, res)=> {
-    /* res.json('Här är alla planeter!') */
     let raw = fs.readFileSync('planets.json');
     let planets = JSON.parse(raw);
     res.json(planets);
@@ -25,9 +24,6 @@ app.get('/specific/:name', (req, res)=> {
             if(planet.name === req.params.name){
                 console.log(planet);
                 return res.json(planet);
-                
-                
-    
             }
         })
         res.json('No planet with that name exists..');
@@ -66,14 +62,13 @@ app.put('/change/:name', (req, res)=> {
         let planets = JSON.parse(raw);
         planets.forEach( function (planet, i) {
             /* console.log(`This planet is ${planet.name} and index is ${i}`); */
+
+            /* Hämtar ut planeten och dess index mha namnet och en forEach */
             if(planet.name === req.params.name){
                 planets.splice(i, 1);
                 planets.push(req.body)
                 fs.writeFileSync('planets.json', JSON.stringify(planets));
                 return res.json('Update success!');
-                
-                
-    
             }
         })
         res.json('No planet with that name exists..');
