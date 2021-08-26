@@ -9,4 +9,48 @@ saveBtn.addEventListener('click', async ()=> {
     console.log(`Name: ${nameInput} Description: ${descriptionInput}`)
     let response = await makeRequest('http://localhost:3000/savePlanets', 'POST', {name: `${nameInput}`, description: `${descriptionInput}`});
     console.log(response)
+    document.getElementById('nameInput').value = '';
+    document.getElementById('colorInput').value = '';
 })
+
+let searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', async ()=> {
+    let searchName = document.getElementById('searchName').value;
+    if (searchName == '') {
+        return
+    }
+    let response = await makeRequest(`http://localhost:3000/specific/${searchName}`, 'GET');
+    console.log(response)
+    document.getElementById('searchName').value = '';
+
+    
+    showPlanetToUpdate(response);
+
+})
+
+async function showPlanetToUpdate(planet) {
+    let updateWrapper = document.getElementById('updateWrapper');
+    updateWrapper.innerHTML = '';
+    let ogName = planet.name;
+    if(planet == 'No planet with that name exists..') {
+        updateWrapper.innerText = planet;
+    } else {
+        let name = document.createElement('input');
+        name.value = planet.name;
+    
+        let description = document.createElement('textarea');
+        description.value = planet.description;
+    
+        let changeBtn = document.createElement('button');
+        changeBtn.innerText = 'Save Changes';
+        changeBtn.addEventListener('click', async ()=> {
+            console.log(ogName);
+            let response = await makeRequest(`http://localhost:3000/change/${ogName}`, 'PUT', { name: name.value, description: description.value });
+            console.log(response)
+        })
+    
+        updateWrapper.append(name, description, changeBtn);
+
+    }
+    
+}
