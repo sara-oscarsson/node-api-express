@@ -69,3 +69,4 @@ async function connectNasa(planet) {
         mainDiv.appendChild(imgWrapper)
     })
 }
+

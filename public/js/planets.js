@@ -11,18 +11,31 @@ async function showPlanets() {
     mainDiv.innerHTML = '';
     let response = await makeRequest('http://localhost:3000/showPlanets', 'GET');
     console.log(response)
+    if(response.length == 0){
+        mainDiv.innerHTML = 'No planets...';
+        mainDiv.style.marginTop = '15px';
+        return
+    }
+    showBtn.style.display = 'none';
     let arrayNumber = 0;
     response.map(i=> {
+        let planetBorder = document.createElement('div');
+        planetBorder.classList.add('planetBorder');
+
+
         let planetNumber = arrayNumber++;
         
         let title = document.createElement('h2');
         title.innerText = i.name;
+        title.classList.add('planetAnimation');
         
-        let description = document.createElement('p');
+        let description = document.createElement('div');
         description.innerText = i.description;
+        description.classList.add('planetAnimation');
 
         let deleteBtn = document.createElement('button');
         deleteBtn.innerText = 'Delete this planet'
+        deleteBtn.classList.add('planetAnimation');
         deleteBtn.addEventListener('click', async ()=> {
             console.log(`Delete planet number ${planetNumber}`);
             let response = await makeRequest('http://localhost:3000/planets/delete', "DELETE", { index: planetNumber });
@@ -31,6 +44,7 @@ async function showPlanets() {
 
         })
 
-        mainDiv.append(title, description, deleteBtn);
+        planetBorder.append(title, description, deleteBtn);
+        mainDiv.append(planetBorder)
     })
 }

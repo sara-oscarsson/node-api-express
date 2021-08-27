@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./js/logic.js" type="module" defer></script>
+    <title>Spacebook</title>
+    <script src="./js/planets.js" type="module" defer></script>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 </head>
 <body>
-    <ul>
-        <li><a href="./planets.html">Planets</a></li>
-        <li><a href="./newPlanet.html">Create a new planet</a></li>
-        <li><a href="./nasa.html">Nasa</a></li>
-    </ul>
-    <h1>Startsida</h1>
-    
+    <header>
+        <ul>
+            <li><a href="./index.html"><b>Planets</b></a></li>
+            <li><a href="./newPlanet.html">Create a new planet</a></li>
+            <li><a href="./nasa.html">Nasa API</a></li>
+        </ul>
+
+    </header>
+    <main>
+        <button id="showBtn">Show planets</button>
+        <div id="demo"></div>
+
+    </main>
 </body>
 </html>

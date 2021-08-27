@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spacebook</title>
     <script src="./js/newPlanet.js" type="module" defer></script>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <ul>
-            <li><a href="./planets.html">Planets</a></li>
-            <li><a href="./newPlanet.html">Create a new planet</a></li>
+            <li><a href="./index.html">Planets</a></li>
+            <li><a href="./newPlanet.html"><b>Create a new planet</b></a></li>
             <li><a href="./nasa.html">Nasa API</a></li>
         </ul>
 
@@ -20,13 +23,14 @@
     <main>
         <div>
             <h1>Save Planet</h1>
-            <input id="nameInput" type="text" placeholder="Name of planet">
-            <textarea id="colorInput" type="text" placeholder="Description"></textarea>
-            <button id="saveBtn">Save new planet</button> 
-
+            <div class="newPlanetWrapper">
+                <input id="nameInput" type="text" placeholder="Name of planet">
+                <textarea id="colorInput" type="text" placeholder="Description"></textarea>
+                <button id="saveBtn">Save new planet</button> 
+            </div>
         </div>
+        <h1>Update planet</h1>
         <div id="searchWrapper">
-            <h1>Update exsisting planet</h1>
             <input id="searchName" type="text" placeholder="Search planet...">
             
             <button id="searchBtn">Search</button> 
