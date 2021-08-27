@@ -51,8 +51,8 @@ app.delete('/planets/delete', (req, res)=> {
     planets.splice(req.body.index, 1);
     /* res.json(planets[req.body.index]); */
     fs.writeFileSync('planets.json', JSON.stringify(planets));
-    res.json('deleted')
-    console.log('deleting')
+    res.json('deleted');
+    console.log('deleting');
 })
 
 /* Uppdaterar en planet */
@@ -65,7 +65,6 @@ app.put('/change/:name', (req, res)=> {
 
             /* Hämtar ut planeten och dess index mha namnet och en forEach */
             if(planet.name === req.params.name){
-                
                 planet.name = req.body.name;
                 planet.description = req.body.description;
                 fs.writeFileSync('planets.json', JSON.stringify(planets));
