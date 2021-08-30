@@ -17,13 +17,13 @@ async function showPlanets() {
         return
     }
     showBtn.style.display = 'none';
-    let arrayNumber = 0;
+
     response.map(i=> {
         let planetBorder = document.createElement('div');
         planetBorder.classList.add('planetBorder');
 
 
-        let planetNumber = arrayNumber++;
+        console.log(`Id planet has is ${i.id}`);
         
         let title = document.createElement('h2');
         title.innerText = i.name;
@@ -37,8 +37,7 @@ async function showPlanets() {
         deleteBtn.innerText = 'Delete this planet'
         deleteBtn.classList.add('planetAnimation');
         deleteBtn.addEventListener('click', async ()=> {
-            console.log(`Delete planet number ${planetNumber}`);
-            let response = await makeRequest('http://localhost:3000/planets/delete', "DELETE", { index: planetNumber });
+            let response = await makeRequest(`http://localhost:3000/planets/delete/${i.id}`, "DELETE");
             console.log(response);
             showPlanets();
 
