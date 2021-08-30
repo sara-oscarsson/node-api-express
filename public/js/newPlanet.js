@@ -1,12 +1,11 @@
 import makeRequest from './logic.js';
 
-
 /* Sparar en planet */
 let saveBtn = document.getElementById('saveBtn');
 saveBtn.addEventListener('click', async ()=> {
     let nameInput = document.getElementById('nameInput').value;
     let descriptionInput = document.getElementById('colorInput').value;
-    let response = await makeRequest('http://localhost:3000/savePlanets', 'POST', {name: `${nameInput}`, description: `${descriptionInput}`, id: 0});
+    let response = await makeRequest('http://localhost:3000/savePlanets', 'POST', {name: `${nameInput}`, description: `${descriptionInput}`});
     console.log(response)
     document.getElementById('nameInput').value = '';
     document.getElementById('colorInput').value = '';
@@ -25,7 +24,6 @@ searchBtn.addEventListener('click', async ()=> {
     showPlanetToUpdate(response);
 
 })
-
 
 /* Uppdaterar en planet */
 async function showPlanetToUpdate(planet) {
@@ -48,9 +46,6 @@ async function showPlanetToUpdate(planet) {
             console.log(response)
             updateWrapper.innerHTML = '';
         })
-    
         updateWrapper.append(name, description, changeBtn);
-
     }
-    
 }

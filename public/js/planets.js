@@ -1,10 +1,7 @@
 import makeRequest from './logic.js';
 
-
 let showBtn = document.getElementById('showBtn');
 showBtn.addEventListener('click', showPlanets);
-
-
 
 async function showPlanets() {
     let mainDiv = document.getElementById('demo');
@@ -21,7 +18,6 @@ async function showPlanets() {
     response.map(i=> {
         let planetBorder = document.createElement('div');
         planetBorder.classList.add('planetBorder');
-
 
         console.log(`Id planet has is ${i.id}`);
         
@@ -40,9 +36,7 @@ async function showPlanets() {
             let response = await makeRequest(`http://localhost:3000/planets/delete/${i.id}`, "DELETE");
             console.log(response);
             showPlanets();
-
         })
-
         planetBorder.append(title, description, deleteBtn);
         mainDiv.append(planetBorder)
     })
