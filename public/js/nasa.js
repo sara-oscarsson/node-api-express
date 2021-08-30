@@ -40,9 +40,7 @@ plutoBtn.addEventListener('click', ()=> {
     connectNasa('planet pluto')
 });
 
-
 async function connectNasa(planet) {
-    console.log(`Hello from ${planet}`)
     let mainDiv = document.getElementById('demo');
     mainDiv.innerHTML = '';
 

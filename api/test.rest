@@ -4,7 +4,7 @@ GET http://localhost:3000/showPlanets
 
 ###
 
-GET http://localhost:3000/specific/Pluto
+GET http://localhost:3000/specific/The Sun
 
 ###
 
@@ -19,19 +19,16 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/planets/delete
+DELETE http://localhost:3000/planets/delete/_ywvq1xgng
 content-type: application/json
 
-{
-    "index": 1
-}
 
 ###
 
-PUT http://localhost:3000/change/Test1
+PUT http://localhost:3000/change/_vx7u1drgy
 content-type: application/json
 
 {
-    "name": "Test1",
-    "Description": "Changed text"
+    "name": "Mercury2",
+    "description": "Changed text"
 }
