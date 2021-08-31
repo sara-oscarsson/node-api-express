@@ -95,6 +95,10 @@ input {
     border-radius: 3px;
 }
 
+input:focus {
+    outline: none;
+}
+
 textarea {
     height: 35px;
     margin: 10px;
@@ -103,6 +107,10 @@ textarea {
     font: 400 13.3333px Arial;
     border: 2px solid white;
     border-radius: 3px;
+}
+
+textarea:focus {
+    outline: none;
 }
 
 #searchWrapper {
