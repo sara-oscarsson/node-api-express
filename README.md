@@ -1,4 +1,4 @@
-# Spacebook
+# Node-API-Express
 
 #### To run use following commands:
 - npm install
