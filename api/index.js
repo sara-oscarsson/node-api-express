@@ -5,12 +5,12 @@ const fs = require('fs');
 const { exit } = require('process');
 
 
-/* Middleware som konverterar alla anrop till json oberoende på path och method */
+/* Middleware that converts all requests into json, regardless of method or path */
 app.use(express.json());
-/* Middleware som tar fram en statisk fil, (index.html i public mappen) */
+/* This middleware serves static files */
 app.use(express.static('../public'));
 
-/* Hämtar alla planeter från planets.json */
+/* This endpoint shows all planets in the json file */
 app.get('/showPlanets', (req, res, next)=> {
     try {
         let raw = fs.readFileSync('planets.json');
@@ -21,13 +21,11 @@ app.get('/showPlanets', (req, res, next)=> {
     }
 })
 
-/* Hämtar en specifik planet med hjälp av namn (sök funktion på sidan) */
+/* Endpoint that retrieves a specific object from the json file */
 app.get('/specific/:name', (req, res, next)=> {
     try{
         let raw = fs.readFileSync('planets.json');
         let planets = JSON.parse(raw);
-        /* Om planeten finns i listan fastnar den i find nedan och foundPlanet blir till true
-        annars undefined */
         let planetFound = planets.find(planet => {
             return planet.name === req.params.name;
         })
@@ -42,18 +40,17 @@ app.get('/specific/:name', (req, res, next)=> {
     }
 })
 
-/* Denna funktionen genererar en random sträng som id */
+/* This function generates a random id for every planet */
 function generateID() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-/* Sparar en ny planet i planets.json */
+/* POST endpoint where you can save a new planet */
 app.post('/savePlanets', (req, res, next)=> {
     try {
         let raw = fs.readFileSync('planets.json');
         let planets = JSON.parse(raw);
 
-        /* Här genereras ett id till planeten */
         req.body.id = generateID();
     
         planets.push(req.body)
@@ -66,7 +63,7 @@ app.post('/savePlanets', (req, res, next)=> {
 
 })
 
-/* Raderar en planet, styrs av id */
+/* DELETE endpoint, send in id */
 app.delete('/planets/delete/:id', (req, res, next)=> {
     try {
         let raw = fs.readFileSync('planets.json');
@@ -91,13 +88,13 @@ app.delete('/planets/delete/:id', (req, res, next)=> {
     }    
 })
 
-/* Uppdaterar en planet */
+/* Here you can UPDATE a planet in the list */
 app.put('/change/:id', (req, res, next)=> {
     try{
         let raw = fs.readFileSync('planets.json');
         let planets = JSON.parse(raw);
 
-        /* Hämtar ut planeten och dess index mha id och en forEach */
+ /* Searching for planet with the right id */       
         let foundPlanet;
         planets.forEach( function (planet, i) {
             if(planet.id === req.params.id){
@@ -117,13 +114,12 @@ app.put('/change/:id', (req, res, next)=> {
     }
 })
 
-/* Error hantering */
+/* Error handling */
 app.use((err, req, res)=> {
     console.error(err.stack);
     res.status(500).send('Oh no...');
 })
 
-/* Lyssnar på port 3000 */
 app.listen(port, ()=> {
     console.log(`Listening on port ${port}`);
 })

@@ -10,34 +10,34 @@ let neptuneBtn = document.getElementById('neptune');
 let plutoBtn = document.getElementById('pluto');
 
 sunBtn.addEventListener('click', ()=> {
-    connectNasa('sun')
+    connectNasa('sun');
 });
 mercuryBtn.addEventListener('click', ()=> {
-    connectNasa('planet mercury')
+    connectNasa('planet mercury');
 });
 venusBtn.addEventListener('click', ()=> {
-    connectNasa('planet venus')
+    connectNasa('planet venus');
 });
 earthBtn.addEventListener('click', ()=> {
-    connectNasa('earth')
+    connectNasa('earth');
 });
 marsBtn.addEventListener('click', ()=> {
-    connectNasa('planet mars')
+    connectNasa('planet mars');
 });
 jupiterBtn.addEventListener('click', ()=> {
-    connectNasa('jupiter')
+    connectNasa('jupiter');
 });
 saturnBtn.addEventListener('click', ()=> {
-    connectNasa('saturn')
+    connectNasa('saturn');
 });
 uranusBtn.addEventListener('click', ()=> {
-    connectNasa('uranus')
+    connectNasa('uranus');
 });
 neptuneBtn.addEventListener('click', ()=> {
-    connectNasa('neptune')
+    connectNasa('neptune');
 });
 plutoBtn.addEventListener('click', ()=> {
-    connectNasa('planet pluto')
+    connectNasa('planet pluto');
 });
 
 async function connectNasa(planet) {
@@ -47,24 +47,18 @@ async function connectNasa(planet) {
     let response = await fetch(`https://images-api.nasa.gov/search?q=${planet}&media_type=image`);
     let result = await response.json();
     
-    let listOfImages = result.collection.items
+    let listOfImages = result.collection.items;
     let shortListOfImages = listOfImages.slice(0, 8);
 
-    console.log(shortListOfImages)
-
     shortListOfImages.map(i => {
-        console.log(i.links[0].href)
-        /* create img wrapper */
         let imgWrapper = document.createElement('div');
         imgWrapper.classList.add('imgWrapper');
 
-        /* create img */
         let image = document.createElement('img');
         image.src = i.links[0].href;
 
-        /* append */
-        imgWrapper.appendChild(image)
-        mainDiv.appendChild(imgWrapper)
+        imgWrapper.appendChild(image);
+        mainDiv.appendChild(imgWrapper);
     })
-}
+};
 

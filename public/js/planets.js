@@ -18,8 +18,6 @@ async function showPlanets() {
     response.map(i=> {
         let planetBorder = document.createElement('div');
         planetBorder.classList.add('planetBorder');
-
-        console.log(`Id planet has is ${i.id}`);
         
         let title = document.createElement('h2');
         title.innerText = i.name;
@@ -38,6 +36,6 @@ async function showPlanets() {
             showPlanets();
         })
         planetBorder.append(title, description, deleteBtn);
-        mainDiv.append(planetBorder)
+        mainDiv.append(planetBorder);
     })
-}
+};

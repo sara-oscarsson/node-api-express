@@ -30,13 +30,13 @@ header ul {
     flex-direction: row;
 }
 
-header ul li{
+header ul li {
     padding: 0;
     list-style-type: none;
     margin: 20px;
 }
 
-header ul li a{
+header ul li a {
     text-decoration: none;
     color: white;
 }
@@ -48,8 +48,7 @@ main {
     align-items: center;
     flex-direction: column;
     padding: 20px;
-    text-align: center;
-    
+    text-align: center; 
 }
 
 button {
@@ -60,8 +59,7 @@ button {
     cursor: pointer;
     color: white;
     background-color: black;
-    margin: 20px;
-    
+    margin: 20px;  
 }
 
 button:hover {
@@ -83,7 +81,6 @@ button:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 }
 
 input {
@@ -130,24 +127,25 @@ textarea:focus {
     padding: 30px;
 }
 
-#demo div div{
+#demo div div {
     width: 200px;
     word-wrap: break-word;
 }
 
 @media screen and (max-width: 650px) {
-    
     body {
         background-image: url(https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2120&q=80);
         background-size: cover;
     }
-    header ul li{
+
+    header ul li {
         margin: 10px;
     }
 
     .newPlanetWrapper {
         flex-direction: column;
     }
+
     #updateWrapper {
         flex-direction: column;
 
